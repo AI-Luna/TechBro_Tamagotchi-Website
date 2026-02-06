@@ -1,65 +1,355 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Image from "next/image";
+import { useState } from "react";
+import { CHARACTERS, STARTUP_STAGES } from "./constants";
+
+const CITY_SCENES = [
+  { label: "New York", src: "/Daytime_Nyc.png", hoverSrc: "/nyc night-time.png" },
+  { label: "SF", src: "/sf_daytime.png", hoverSrc: "/sf_nighttime.png" },
+];
+
+const ACTIVITIES = [
+  {
+    id: "feed",
+    label: "Feed",
+    description: "Coffee, salad, pizza—keep your founder fueled.",
+    image: "/Gemini_Generated_Image_akj6cpakj6cpakj6-removebg-preview.png",
+  },
+  {
+    id: "social",
+    label: "Social",
+    description: "Happy hour, conferences, DM slides. Network up.",
+    image: "/Gemini_Generated_Image_e9lyjje9lyjje9ly-removebg-preview.png",
+  },
+  {
+    id: "work",
+    label: "Work",
+    description: "Code, pitch, meetings. Progress toward funding.",
+    image: "/Gemini_Generated_Image_98hskv98hskv98hs-removebg-preview.png",
+  },
+  {
+    id: "self_care",
+    label: "Self-Care",
+    description: "Sleep, gym, meditate. Fight burnout.",
+    image: "/Gemini_Generated_Image_izrpbkizrpbkizrp-removebg-preview.png",
+  },
+];
+
+export default function LandingPage() {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [hoveredCity, setHoveredCity] = useState<string | null>(null);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div
+      className="relative overflow-hidden"
+      style={{ backgroundColor: "var(--modal-bg-hex)" }}
+    >
+      {/* Hero */}
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-16">
+        <div className="mb-2 text-center">
+          <h1
+            className="text-4xl font-bold tracking-wider sm:text-5xl md:text-6xl"
+            style={{
+              color: "var(--accent-hex)",
+              textShadow: `
+                2px 2px 0 var(--text-primary-hex),
+                -1px -1px 0 var(--text-primary-hex),
+                1px -1px 0 var(--text-primary-hex),
+                -1px 1px 0 var(--text-primary-hex),
+                0 0 12px var(--text-primary-hex)
+              `,
+            }}
+          >
+            TECHBRO TAMAGOTCHI
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <p
+          className="mb-10 text-lg font-bold sm:text-xl"
+          style={{ color: "var(--text-primary-hex)" }}
+        >
+          Choose your founder.
+        </p>
+
+        <div className="mb-12 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
+          {CHARACTERS.map((c) => {
+            const isHovered = hoveredId === c.id;
+            return (
+              <div
+                key={c.id}
+                className="relative z-10 flex flex-col items-center rounded-lg border-2 p-4 transition-all duration-200 hover:scale-[1.02]"
+                style={{
+                  borderColor: isHovered ? "var(--accent-hex)" : "var(--text-primary-hex)",
+                  backgroundColor: "var(--modal-bg-hex)",
+                  boxShadow: isHovered ? `0 0 16px var(--accent-hex)` : "0 0 0 1px rgba(0,242,242,0.2)",
+                  overflow: isHovered ? "visible" : undefined,
+                }}
+                onMouseEnter={() => setHoveredId(c.id)}
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                <div
+                  className="relative h-32 w-32 shrink-0 rounded border transition-transform duration-300 ease-out"
+                  style={{
+                    borderColor: "var(--text-primary-hex)",
+                    backgroundColor: "var(--card-bg-hex)",
+                    transform: isHovered ? "scale(2.25)" : "scale(1)",
+                    transformOrigin: "center center",
+                    overflow: isHovered ? "visible" : "hidden",
+                  }}
+                >
+                  <Image
+                    src={c.image}
+                    alt={c.label}
+                    fill
+                    className="object-contain p-1"
+                    unoptimized
+                  />
+                </div>
+                <span
+                  className="mt-3 font-bold"
+                  style={{ color: "var(--text-primary-hex)" }}
+                >
+                  {c.label}
+                </span>
+                <span
+                  className="mt-1 text-center text-sm font-bold"
+                  style={{ color: "#ffffff" }}
+                >
+                  {c.description}
+                </span>
+              </div>
+            );
+          })}
         </div>
-      </main>
+
+        <p
+          className="mb-2 whitespace-nowrap text-center text-lg font-bold leading-relaxed sm:text-xl"
+          style={{
+            color: "#ffffff",
+            textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 0 12px rgba(0,0,0,0.5)",
+          }}
+        >
+          From your apartment bedroom to unicorn status.
+        </p>
+        <p
+          className="mb-10 max-w-lg text-center text-base font-bold leading-snug sm:text-lg"
+          style={{
+            color: "#ffffff",
+            textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 0 12px rgba(0,0,0,0.5)",
+          }}
+        >
+          Nurture your founder. Manage energy, health, burnout, and social life while you build your startup—Tamagotchi-style.
+        </p>
+
+        <a
+          href="https://x.com/LunaBitar"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 rounded-lg border-2 px-8 py-3.5 font-bold transition-all duration-200 hover:opacity-95 hover:shadow-[0_0_24px_var(--accent-hex)]"
+          style={{
+            borderColor: "var(--accent-hex)",
+            backgroundColor: "var(--accent-hex)",
+            color: "#ffffff",
+            fontWeight: 700,
+          }}
+        >
+          Download on the App Store
+        </a>
+      </div>
+
+      {/* Features: settings, journey, activities, mini-games */}
+      <section className="relative z-10 border-t-2 border-[var(--card-selected-hex)] px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2
+            className="mb-10 text-center text-2xl font-bold sm:text-3xl"
+            style={{
+              color: "var(--text-primary-hex)",
+              textShadow: "0 1px 3px rgba(0,0,0,0.6)",
+            }}
+          >
+            How it works
+          </h2>
+
+          {/* Settings: city & time */}
+          <div className="mb-14">
+            <h3 className="mb-4 text-xl font-bold sm:text-2xl" style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.7)" }}>
+              Choose your city & vibe
+            </h3>
+            <p className="mb-4 max-w-xl text-sm font-bold leading-relaxed" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.7)" }}>
+              Play in New York or SF. Your founder lives against these backdrops.
+            </p>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {CITY_SCENES.map((scene) => {
+                const isHovered = hoveredCity === scene.label;
+                const showingSrc = isHovered && scene.hoverSrc ? scene.hoverSrc : scene.src;
+                return (
+                  <div
+                    key={scene.label}
+                    className="flex flex-col items-center"
+                    onMouseEnter={() => setHoveredCity(scene.label)}
+                    onMouseLeave={() => setHoveredCity(null)}
+                  >
+                    <div
+                      className="inline-block max-w-full overflow-hidden rounded-lg border-2 transition-all duration-300"
+                      style={{
+                        borderColor: isHovered ? "var(--accent-hex)" : "var(--text-primary-hex)",
+                        backgroundColor: "var(--card-bg-hex)",
+                        boxShadow: isHovered ? "0 0 20px var(--accent-hex)" : "none",
+                      }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={showingSrc}
+                        alt={scene.label}
+                        className="block max-w-full h-auto transition-opacity duration-300"
+                        style={{ width: "100%", maxWidth: "100%", height: "auto", display: "block", verticalAlign: "middle" }}
+                      />
+                    </div>
+                    <p
+                      className="mt-2 text-center text-sm font-bold"
+                      style={{ color: "var(--text-primary-hex)" }}
+                    >
+                      {scene.label}
+                      {isHovered ? " (night)" : ""}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Startup journey */}
+          <div className="mb-14 transition-all duration-200 hover:scale-[1.01] hover:shadow-[0_0_24px_var(--accent-hex)]">
+            <h3 className="mb-4 text-xl font-bold sm:text-2xl" style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.7)" }}>
+              Your startup journey
+            </h3>
+            <p className="mb-4 max-w-xl text-sm font-bold leading-relaxed" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.7)" }}>
+              Advance from ideation to unicorn by raising funding and keeping your founder healthy.
+            </p>
+            <div
+              className="flex flex-wrap justify-center gap-2 rounded-lg border-2 p-3 transition-all duration-200 hover:border-[var(--accent-hex)] hover:shadow-[0_0_20px_var(--accent-hex)]"
+              style={{
+                borderColor: "var(--text-primary-hex)",
+                backgroundColor: "var(--modal-bg-hex)",
+              }}
+            >
+              {STARTUP_STAGES.map((s, i) => (
+                <span key={s.id} className="flex items-center gap-2">
+                  <span
+                    className="rounded border-2 border-transparent px-2 py-1 text-xs font-bold transition-all duration-300 ease-out hover:scale-150 hover:border-[var(--accent-hex)] hover:bg-[var(--card-selected-hex)] hover:text-[var(--accent-hex)] hover:shadow-[0_0_12px_var(--accent-hex)] sm:text-sm"
+                    style={{
+                      color: "var(--text-primary-hex)",
+                      backgroundColor: "var(--card-bg-hex)",
+                    }}
+                  >
+                    {s.label}
+                  </span>
+                  {i < STARTUP_STAGES.length - 1 && (
+                    <span className="font-bold" style={{ color: "var(--accent-hex)" }}>
+                      →
+                    </span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Activities */}
+          <div className="mb-14">
+            <h3 className="mb-4 text-xl font-bold sm:text-2xl" style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.7)" }}>
+              What your founder can do
+            </h3>
+            <p className="mb-4 max-w-xl text-sm font-bold leading-relaxed" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.7)" }}>
+              Four action categories. Balance energy, health, burnout, and social to progress.
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {ACTIVITIES.map((a) => (
+                <div
+                  key={a.id}
+                  className="flex items-center gap-4 rounded-lg border-2 p-4 transition-all duration-200 hover:scale-[1.02] hover:border-[var(--accent-hex)] hover:shadow-[0_0_24px_var(--accent-hex)]"
+                  style={{
+                    borderColor: "var(--text-primary-hex)",
+                    backgroundColor: "var(--card-bg-hex)",
+                  }}
+                >
+                  <div
+                    className="relative h-24 w-24 shrink-0 overflow-hidden rounded border"
+                    style={{
+                      borderColor: "var(--text-primary-hex)",
+                      backgroundColor: "var(--card-selected-hex)",
+                    }}
+                  >
+                    <Image
+                      src={a.image}
+                      alt=""
+                      fill
+                      className="object-contain p-0"
+                      style={{ transform: "scale(1.8)" }}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-bold" style={{ color: "var(--text-primary-hex)" }}>
+                      {a.label}
+                    </p>
+                    <p className="max-w-sm text-sm font-bold leading-snug" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.6)" }}>
+                      {a.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mini-games */}
+          <div className="mb-10">
+            <h3 className="mb-4 text-xl font-bold sm:text-2xl" style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.7)" }}>
+              Mini-games
+            </h3>
+            <p className="mb-4 max-w-xl text-sm font-bold leading-relaxed" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.7)" }}>
+              Dating: boost social. Lock-in mode: grind for energy. Extra ways to level up your founder.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <span
+                className="cursor-default rounded-lg border-2 px-4 py-2 font-bold transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_var(--accent-hex)]"
+                style={{
+                  borderColor: "var(--accent-hex)",
+                  color: "var(--text-primary-hex)",
+                }}
+              >
+                Dating
+              </span>
+              <span
+                className="cursor-default rounded-lg border-2 px-4 py-2 font-bold transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_var(--accent-hex)]"
+                style={{
+                  borderColor: "var(--accent-hex)",
+                  color: "var(--text-primary-hex)",
+                }}
+              >
+                Lock-in mode
+              </span>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center">
+            <a
+              href="https://x.com/LunaBitar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 px-8 py-3.5 font-bold transition-all duration-200 hover:scale-105 hover:border-[var(--accent-hex)] hover:shadow-[0_0_28px_var(--accent-hex)]"
+              style={{
+                borderColor: "var(--accent-hex)",
+                backgroundColor: "var(--accent-hex)",
+                color: "#ffffff",
+                fontWeight: 700,
+              }}
+            >
+              Download on the App Store
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

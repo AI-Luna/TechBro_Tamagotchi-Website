@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+/* ========== TechBro Tamagotchi Design System ========== */
+
+/* Main game background - Gameboy green */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --lcd-background: rgb(115, 140, 115);
+  --lcd-background-hex: #738C73;
+
+  /* Screen area - slightly lighter green */
+  --lcd-screen: rgb(133, 158, 133);
+  --lcd-screen-hex: #859E85;
+
+  /* Dark elements (buttons, borders) */
+  --lcd-dark: rgb(46, 56, 46);
+  --lcd-dark-hex: #2E382E;
+
+  /* Light accents */
+  --lcd-light: rgb(148, 173, 148);
+  --lcd-light-hex: #94AD94;
+
+  /* Modal overlay */
+  --overlay: rgba(0, 0, 0, 0.5);
+
+  /* Modal background - deep purple */
+  --modal-bg: rgb(56, 31, 97);
+  --modal-bg-hex: #381F61;
+
+  /* Card background - medium purple */
+  --card-bg: rgb(71, 46, 115);
+  --card-bg-hex: #472E73;
+
+  /* Selected card - bright purple */
+  --card-selected: rgb(89, 56, 140);
+  --card-selected-hex: #59388C;
+
+  /* Text - bright cyan */
+  --text-primary: rgb(0, 242, 242);
+  --text-primary-hex: #00F2F2;
+
+  /* Secondary text - light blue-white */
+  --text-secondary: rgb(217, 230, 242);
+  --text-secondary-hex: #D9E6F2;
+
+  /* Accent - hot pink */
+  --accent: rgb(255, 102, 204);
+  --accent-hex: #FF66CC;
+
+  /* Disabled state */
+  --disabled: rgb(128, 115, 153);
+  --disabled-hex: #807399;
+
+  --background: var(--lcd-background-hex);
+  --foreground: var(--lcd-dark-hex);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: "Courier New", Courier, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Pixel-perfect rendering & typography */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Courier New", Courier, monospace;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  background: var(--lcd-background-hex);
+  color: var(--lcd-dark-hex);
+}
+
+/* Utility for modal text */
+.text-modal-primary {
+  color: var(--text-primary);
+}
+.text-modal-secondary {
+  color: var(--text-secondary);
+}
+.bg-modal {
+  background: var(--modal-bg-hex);
+}
+.bg-card {
+  background: var(--card-bg-hex);
+}
+.border-modal {
+  border-color: var(--card-selected-hex);
 }
