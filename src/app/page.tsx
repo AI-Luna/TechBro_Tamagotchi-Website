@@ -88,7 +88,7 @@ export default function LandingPage() {
                 onMouseLeave={() => setHoveredId(null)}
               >
                 <div
-                  className="relative h-32 w-32 shrink-0 rounded border transition-transform duration-300 ease-out"
+                  className="flex h-32 w-32 shrink-0 items-center justify-center rounded border transition-transform duration-300 ease-out"
                   style={{
                     borderColor: "var(--text-primary-hex)",
                     backgroundColor: "var(--card-bg-hex)",
@@ -97,12 +97,12 @@ export default function LandingPage() {
                     overflow: isHovered ? "visible" : "hidden",
                   }}
                 >
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={c.image}
                     alt={c.label}
-                    fill
-                    className="object-contain p-1"
-                    unoptimized
+                    className="max-h-full max-w-full object-contain p-1"
+                    style={{ width: "auto", height: "auto", objectFit: "contain" }}
                   />
                 </div>
                 <span

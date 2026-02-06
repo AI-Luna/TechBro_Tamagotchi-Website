@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "TechBro Tamagotchi | Startup Life Simulator",
   description:
     "Nurture your Tech Bro/Gal from garage to unicorn. A Tamagotchi-style startup life simulator with retro pixel art.",
+  icons: {
+    icon: { url: "/steve_Icon.png", type: "image/png" },
+  },
 };
 
 export default function RootLayout({

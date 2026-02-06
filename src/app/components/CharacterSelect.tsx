@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { CHARACTERS } from "../constants";
 import type { CharacterArchetype } from "../types";
 
@@ -37,13 +36,12 @@ export default function CharacterSelect({
             }}
             onClick={() => onSelect(c.id)}
           >
-            <div className="relative h-32 w-32 overflow-hidden rounded border border-[var(--lcd-dark-hex)] bg-[var(--lcd-light-hex)]">
-              <Image
+            <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded border border-[var(--lcd-dark-hex)] bg-[var(--lcd-light-hex)]">
+              <img
                 src={c.image}
                 alt={c.label}
-                fill
-                className="object-contain p-1"
-                unoptimized
+                className="max-h-full max-w-full object-contain p-1"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
             <span className="mt-2 font-bold" style={{ color: "var(--lcd-dark-hex)" }}>

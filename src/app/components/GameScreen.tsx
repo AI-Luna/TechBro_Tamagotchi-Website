@@ -185,13 +185,12 @@ export default function GameScreen({
             backgroundColor: "var(--lcd-screen-hex)",
           }}
         >
-          <div className="relative h-40 w-32 shrink-0 overflow-hidden rounded border-2 border-[var(--lcd-dark-hex)]">
-            <Image
+          <div className="flex h-40 w-32 shrink-0 items-center justify-center overflow-hidden rounded border-2 border-[var(--lcd-dark-hex)]">
+            <img
               src={characterImg}
               alt="Your character"
-              fill
-              className="object-contain p-1"
-              unoptimized
+              className="max-h-full max-w-full object-contain p-1"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
           <p className="mt-2 text-xs font-bold" style={{ color: "var(--lcd-dark-hex)" }}>
