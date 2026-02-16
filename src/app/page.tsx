@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { CHARACTERS, STARTUP_STAGES } from "./constants";
 
@@ -348,6 +349,31 @@ export default function LandingPage() {
               Download on the App Store
             </a>
           </div>
+
+          {/* Legal footer */}
+          <footer className="mt-16 flex flex-wrap justify-center gap-x-6 gap-y-2 border-t border-[var(--card-selected-hex)] pt-8">
+            <Link
+              href="/privacy"
+              className="text-sm font-bold underline transition hover:opacity-90"
+              style={{ color: "var(--text-primary-hex)" }}
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-sm font-bold underline transition hover:opacity-90"
+              style={{ color: "var(--text-primary-hex)" }}
+            >
+              Terms of Use
+            </Link>
+            <Link
+              href="/age-rating"
+              className="text-sm font-bold underline transition hover:opacity-90"
+              style={{ color: "var(--text-primary-hex)" }}
+            >
+              Age Rating (4+)
+            </Link>
+          </footer>
         </div>
       </section>
     </div>
