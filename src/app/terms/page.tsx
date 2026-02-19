@@ -28,7 +28,7 @@ export default function TermsOfUsePage() {
           Terms of Use
         </h1>
         <p className="mb-8 text-sm" style={{ color: "var(--text-secondary-hex)" }}>
-          Last updated: February 2025
+          Last updated: February 2026
         </p>
 
         <div
@@ -66,6 +66,12 @@ export default function TermsOfUsePage() {
             <p className="mt-2">
               <strong>Refunds:</strong> Refund requests are handled by Apple, not by us. To request a refund, go to reportaproblem.apple.com or use the &quot;Report a Problem&quot; link in your App Store purchase history. Apple&apos;s refund policy and decisions apply. We cannot issue refunds directly.
             </p>
+            <ul className="ml-4 mt-2 list-disc space-y-1">
+              <li>Payment will be charged to your Apple ID account upon confirmation of purchase.</li>
+              <li>Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current period.</li>
+              <li>Your account will be charged for renewal within 24 hours prior to the end of the current period.</li>
+              <li>You can manage your subscription and turn off auto-renewal in your device Account Settings after purchase.</li>
+            </ul>
             <p className="mt-2">
               For any billing or subscription questions that Apple cannot resolve, you may contact us and we will assist where we can, but cancellation and refunds are managed solely through the App Store.
             </p>

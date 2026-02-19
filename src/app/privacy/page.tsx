@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <p className="mb-8 text-sm" style={{ color: "var(--text-secondary-hex)" }}>
-          Last updated: February 2025
+          Last updated: February 2026
         </p>
 
         <div

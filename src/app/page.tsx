@@ -118,6 +118,23 @@ export default function LandingPage() {
                 >
                   {c.description}
                 </span>
+                {c.id === "vibe_coder" && (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center rounded-lg"
+                    style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+                  >
+                    <span
+                      className="rounded px-3 py-1 text-sm font-bold tracking-wide"
+                      style={{
+                        color: "var(--accent-hex)",
+                        border: "2px solid var(--accent-hex)",
+                        backgroundColor: "rgba(0,0,0,0.8)",
+                      }}
+                    >
+                      Coming Soon
+                    </span>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -304,31 +321,34 @@ export default function LandingPage() {
 
           {/* Mini-games */}
           <div className="mb-10">
-            <h3 className="mb-4 text-xl font-bold sm:text-2xl" style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.7)" }}>
+            <h3 className="mb-6 text-xl font-bold sm:text-2xl" style={{ color: "#ffffff", textShadow: "0 1px 3px rgba(0,0,0,0.7)" }}>
               Mini-games
             </h3>
-            <p className="mb-4 max-w-xl text-sm font-bold leading-relaxed" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.7)" }}>
-              Dating: boost social. Lock-in mode: grind for energy. Extra ways to level up your founder.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <span
-                className="cursor-default rounded-lg border-2 px-4 py-2 font-bold transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_var(--accent-hex)]"
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div
+                className="rounded-xl border-2 p-5"
                 style={{
                   borderColor: "var(--accent-hex)",
-                  color: "var(--text-primary-hex)",
+                  backgroundColor: "rgba(0,0,0,0.35)",
                 }}
               >
-                Dating
-              </span>
-              <span
-                className="cursor-default rounded-lg border-2 px-4 py-2 font-bold transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_var(--accent-hex)]"
+                <p className="mb-2 font-bold" style={{ color: "var(--accent-hex)" }}>Dating</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.7)" }}>
+                  Send your founder on a date. Pick the right replies in 3 rounds and score a Great Date with bonus social and happiness—or end up with an Awkward Date and a small social boost.
+                </p>
+              </div>
+              <div
+                className="rounded-xl border-2 p-5"
                 style={{
                   borderColor: "var(--accent-hex)",
-                  color: "var(--text-primary-hex)",
+                  backgroundColor: "rgba(0,0,0,0.35)",
                 }}
               >
-                Lock-in mode
-              </span>
+                <p className="mb-2 font-bold" style={{ color: "var(--accent-hex)" }}>Lock In</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#ffffff", textShadow: "0 1px 2px rgba(0,0,0,0.7)" }}>
+                  Survive 30 seconds of deep work: distractions pop up (phone, Slack, Twitter, etc.). Tap them away to keep your focus meter up and your productivity climbing.
+                </p>
+              </div>
             </div>
           </div>
 
