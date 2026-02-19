@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Age Rating | TechBro Tamagotchi",
-  description: "Age rating and content suitability for TechBro Tamagotchi.",
+  title: "Age Rating | Tiny TechBro",
+  description: "Age rating and content suitability for Tiny TechBro.",
 };
 
 export default function AgeRatingPage() {
@@ -28,7 +28,7 @@ export default function AgeRatingPage() {
           Age Rating &amp; Content Suitability
         </h1>
         <p className="mb-8 text-sm" style={{ color: "var(--text-secondary-hex)" }}>
-          TechBro Tamagotchi is rated 4+
+          Tiny TechBro is rated 4+
         </p>
 
         <div
@@ -40,7 +40,7 @@ export default function AgeRatingPage() {
               Age rating
             </h2>
             <p>
-              TechBro Tamagotchi is rated <strong>4+</strong> (suitable for ages 4 and older) on the App Store. The app is designed for general audiences and does not contain objectionable content.
+              Tiny TechBro is rated <strong>4+</strong> (suitable for ages 4 and older) on the App Store. The app is designed for general audiences and does not contain objectionable content.
             </p>
           </section>
 

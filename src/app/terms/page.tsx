@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Use | TechBro Tamagotchi",
-  description: "Terms of Use for TechBro Tamagotchi.",
+  title: "Terms of Use | Tiny TechBro",
+  description: "Terms of Use for Tiny TechBro.",
 };
 
 export default function TermsOfUsePage() {
@@ -40,7 +40,7 @@ export default function TermsOfUsePage() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By downloading, installing, or using TechBro Tamagotchi (&quot;the App&quot;), you agree to be bound by these Terms of Use. If you do not agree, do not use the App.
+              By downloading, installing, or using Tiny TechBro (&quot;the App&quot;), you agree to be bound by these Terms of Use. If you do not agree, do not use the App.
             </p>
           </section>
 
@@ -58,10 +58,10 @@ export default function TermsOfUsePage() {
               3. Subscriptions, Cancellation, and Refunds
             </h2>
             <p>
-              TechBro Tamagotchi may offer in-app subscriptions. All payments for subscriptions are processed by the App Store (Apple). We do not process payments directly.
+              Tiny TechBro may offer in-app subscriptions. All payments for subscriptions are processed by the App Store (Apple). We do not process payments directly.
             </p>
             <p className="mt-2">
-              <strong>How to cancel or unsubscribe:</strong> You must manage and cancel your subscription through the App Store (Apple), not through us. On your iPhone or iPad: open Settings → [your name] → Subscriptions, select TechBro Tamagotchi, and cancel. You can also manage subscriptions in the App Store app. Cancellation stops future charges; you keep access until the end of the current billing period.
+              <strong>How to cancel or unsubscribe:</strong> You must manage and cancel your subscription through the App Store (Apple), not through us. On your iPhone or iPad: open Settings → [your name] → Subscriptions, select Tiny TechBro, and cancel. You can also manage subscriptions in the App Store app. Cancellation stops future charges; you keep access until the end of the current billing period.
             </p>
             <p className="mt-2">
               <strong>Refunds:</strong> Refund requests are handled by Apple, not by us. To request a refund, go to reportaproblem.apple.com or use the &quot;Report a Problem&quot; link in your App Store purchase history. Apple&apos;s refund policy and decisions apply. We cannot issue refunds directly.
