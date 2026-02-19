@@ -62,7 +62,7 @@ export default function LandingPage() {
               `,
             }}
           >
-            TECHBRO TAMAGOTCHI
+            TINY TECHBRO
           </h1>
         </div>
         <p
