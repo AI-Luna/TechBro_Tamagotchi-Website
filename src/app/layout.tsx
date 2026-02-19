@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Tiny TechBro | Startup Life Simulator",
   description:
-    "Nurture your Tech Bro/Gal from garage to unicorn. A Tamagotchi-style startup life simulator with retro pixel art.",
+    "Nurture your Tech Bro/Gal from garage to unicorn. A startup life simulator with retro pixel art.",
   icons: {
     icon: { url: "/steve_Icon.png", type: "image/png" },
   },

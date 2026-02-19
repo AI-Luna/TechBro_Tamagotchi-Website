@@ -49,7 +49,7 @@ export default function AgeRatingPage() {
               Content
             </h2>
             <p>
-              The app is a lighthearted, Tamagotchi-style startup life simulator with retro pixel art. It does not include violence, frightening content, profanity, sexual content, or gambling. Gameplay involves managing a cartoon founder character (energy, health, burnout, social life) and advancing through startup stages in a humorous, family-friendly way.
+              The app is a lighthearted startup life simulator with retro pixel art. It does not include violence, frightening content, profanity, sexual content, or gambling. Gameplay involves managing a cartoon founder character (energy, health, burnout, social life) and advancing through startup stages in a humorous, family-friendly way.
             </p>
           </section>
 
