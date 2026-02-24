@@ -160,7 +160,7 @@ export default function LandingPage() {
         </p>
 
         <a
-          href="https://x.com/LunaBitar"
+          href="https://apps.apple.com/us/app/tiny-techbro-build-a-startup/id6759268943"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 rounded-lg border-2 px-8 py-3.5 font-bold transition-all duration-200 hover:opacity-95 hover:shadow-[0_0_24px_var(--accent-hex)]"
@@ -355,7 +355,7 @@ export default function LandingPage() {
           {/* Bottom CTA */}
           <div className="text-center">
             <a
-              href="https://x.com/LunaBitar"
+              href="https://apps.apple.com/us/app/tiny-techbro-build-a-startup/id6759268943"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg border-2 px-8 py-3.5 font-bold transition-all duration-200 hover:scale-105 hover:border-[var(--accent-hex)] hover:shadow-[0_0_28px_var(--accent-hex)]"
