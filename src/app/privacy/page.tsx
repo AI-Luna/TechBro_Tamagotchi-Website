@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Tiny TechBro",
-  description: "Privacy Policy for Tiny TechBro.",
+  title: "Privacy Policy | TechBro Tamagotchi",
+  description: "Privacy Policy for TechBro Tamagotchi.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
               1. Introduction
             </h2>
             <p>
-              Tiny TechBro (&quot;we,&quot; &quot;our,&quot; or &quot;the app&quot;) is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our mobile application and related services.
+              TechBro Tamagotchi (&quot;we,&quot; &quot;our,&quot; or &quot;the app&quot;) is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our mobile application and related services.
             </p>
           </section>
 
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
               2. Information We Collect
             </h2>
             <p>
-              Tiny TechBro is designed with privacy in mind. We may collect:
+              TechBro Tamagotchi is designed with privacy in mind. We may collect:
             </p>
             <ul className="ml-4 list-disc space-y-1">
               <li>
@@ -93,7 +93,7 @@ export default function PrivacyPolicyPage() {
               5. Children&apos;s Privacy
             </h2>
             <p>
-              Tiny TechBro is rated 4+ and is suitable for general audiences, including children. We do not sell personal information. If you have questions about your child&apos;s use of the app or want to request deletion of data, please contact us.
+              TechBro Tamagotchi is rated 4+ and is suitable for general audiences, including children. We do not sell personal information. If you have questions about your child&apos;s use of the app or want to request deletion of data, please contact us.
             </p>
           </section>
 
